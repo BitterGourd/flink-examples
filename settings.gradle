@@ -1,0 +1,3 @@
+rootProject.name = 'flink-examples'
+include 'flink-streaming'
+include 'flink-sql'

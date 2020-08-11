@@ -1,0 +1,21 @@
+group 'com.github'
+version '1.0.0'
+
+allprojects {
+    apply plugin: 'java'
+    apply plugin: 'idea'
+
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+
+    tasks.withType(JavaCompile) {
+        options.encoding = "UTF-8"
+    }
+
+    repositories {
+        maven{
+            url{'http://maven.aliyun.com/nexus/content/groups/public/'}
+        }
+        mavenCentral()
+    }
+}
