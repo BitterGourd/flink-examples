@@ -46,22 +46,8 @@ public class CustomizeEvictorAndTrigger {
                 // 生成时间戳并创建 watermark
                 .assignTimestampsAndWatermarks(new CarTimestamp())
                 .keyBy(0)
-                // window 参数需要一个 WindowAssigner(窗口分配器)，将数据流中的元素分配到对应的窗口
-                // GlobalWindows 用于使用 Trigger(触发器) 和 Evictor(清除器) 来定义更灵活的窗口
                 .window(GlobalWindows.create())
-                /*
-                 * Evictor 是在 WindowAssigner 和 Trigger 的基础上的一个可选选项，用来清除一些数据
-                 * 可以在 Window Function 之前(evictBefore)，也可以在之后(evictAfter)
-                 *
-                 * evictor() 方法是可选的，如果不选择，则默认没有
-                 *
-                 * CountEvictor 保留指定数量的元素，多余的元素按照从前到后的顺序先后清理
-                 * DeltaEvictor 通过执行用户给定的 DeltaFunction 以及预设的 threshold，判断是否删除一个元素
-                 * TimeEvictor 设定一个 windowSize，删除所有不在 maxTs - windowSize 的元素，maxTs 是窗口内时间戳的最大值
-                 */
                 .evictor(TimeEvictor.of(Time.of(evictionSec, TimeUnit.SECONDS)))
-                // Trigger 用来判断一个窗口是否需要被触发，每个窗口都自带一个默认的 Trigger
-                // 决定了何时启动 Window Function 来处理窗口中的数据以及何时将窗口内的数据清理
                 .trigger(DeltaTrigger.of(triggerMeters,
                         new DeltaFunction<Tuple4<Integer, Integer, Double, Long>>() {
                             private static final long serialVersionUID = -5412569253563063695L;

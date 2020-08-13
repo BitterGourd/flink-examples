@@ -71,7 +71,7 @@ public class StateMachineExample {
 
             FlinkKafkaConsumer<Event> kafka = new FlinkKafkaConsumer<Event>(kafkaTopic, new EventDeSerializer(),
                     kafkaProps);
-            // 指定 Kafka 消费 offset 策略，如果有 checkpoint 或 savepoint，则此项配置不生效，以状态存储为准
+            // 指定 Kafka 消费 offset 策略，如果已保存 checkpoint 或 savepoint，则此项配置不生效，以状态存储为准
             kafka.setStartFromLatest();
             // 是否自动提交 Offset，仅在开启 checkpoint 时有效
             // 否则应该使用 "auto.commit.enable" (for 0.8) / "enable.auto.commit" (for 0.9+)
