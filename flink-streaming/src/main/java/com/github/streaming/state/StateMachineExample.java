@@ -24,7 +24,7 @@ import org.apache.flink.util.Collector;
 import java.util.Properties;
 
 /**
- * 状态机案例 (Flink 状态管理及容错机制)
+ * Flink 状态管理 - 状态机案例，如果状态转换非法则告警输出
  *
  * 首先 events 是一个 DataStream，通过 env.addSource 加载数据进来
  * 接下来有一个 DataStream 叫 alerts，先 keyby 一个 sourceAddress，然后在 flatMap 一个 StateMachineMapper
