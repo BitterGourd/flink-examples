@@ -4,7 +4,7 @@ import com.github.streaming.state.dfa.State;
 import com.github.streaming.state.event.Alert;
 import com.github.streaming.state.event.Event;
 import com.github.streaming.state.generator.EventsGeneratorSource;
-import com.github.streaming.state.kafka.EventDeSerializer;
+import com.github.streaming.serialize.EventDeSerializer;
 import org.apache.flink.api.common.functions.RichFlatMapFunction;
 import org.apache.flink.api.common.serialization.SimpleStringEncoder;
 import org.apache.flink.api.common.state.ValueState;

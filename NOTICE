@@ -10,4 +10,4 @@ WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING O
 USE OR PERFORMANCE OF THIS SOFTWARE.
 
 The Flink Examples project contains or reuses code that is licensed under the Apache 2.0 license from the following projects:
-- Apache Flink Examples (https://github.com/apache/flink/tree/master/flink-examples)
+- Apache Flink (https://github.com/apache/flink/tree/master/flink-examples)

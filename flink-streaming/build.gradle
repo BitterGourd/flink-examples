@@ -4,8 +4,11 @@ version '1.0.0'
 dependencies {
     implementation group: 'org.apache.flink', name: 'flink-streaming-java_2.12', version: '1.11.1'
     implementation group: 'org.apache.flink', name: 'flink-clients_2.12', version: '1.11.1'
+    
     implementation group: 'org.apache.flink', name: 'flink-connector-twitter_2.12', version: '1.11.1'
     implementation group: 'org.apache.flink', name: 'flink-connector-kafka_2.12', version: '1.11.1'
+    
     implementation group: 'org.apache.flink', name: 'flink-statebackend-rocksdb_2.12', version: '1.11.1'
+    
     implementation group: 'org.apache.flink', name: 'flink-cep_2.12', version: '1.11.1'
 }

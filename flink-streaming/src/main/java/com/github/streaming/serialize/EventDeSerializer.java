@@ -1,4 +1,4 @@
-package com.github.streaming.state.kafka;
+package com.github.streaming.serialize;
 
 import com.github.streaming.state.event.Event;
 import com.github.streaming.state.event.EventType;
