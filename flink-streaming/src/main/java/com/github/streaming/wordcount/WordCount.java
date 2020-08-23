@@ -14,6 +14,7 @@ import org.apache.flink.util.Collector;
 import org.apache.flink.util.Preconditions;
 
 public class WordCount {
+
     public static void main(String[] args) throws Exception {
         /*
          * 解析运行参数，参数 key 以 - 或 -- 开头

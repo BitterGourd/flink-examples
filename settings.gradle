@@ -1,5 +1,6 @@
 rootProject.name = 'flink-examples'
 include 'flink-streaming'
 include 'flink-sql'
-include 'flink-connectors'
+include 'flink-stream-connectors'
+include 'flink-sql-connectors'
 
