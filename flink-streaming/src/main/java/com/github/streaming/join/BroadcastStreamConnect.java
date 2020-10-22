@@ -1,4 +1,4 @@
-package com.github.streaming.state;
+package com.github.streaming.join;
 
 import com.github.streaming.state.pojo.Action;
 import com.github.streaming.state.pojo.Pattern;
@@ -45,7 +45,7 @@ import java.util.Arrays;
  *  4.不使用 RocksDB state backend：
  *      broadcast state 在运行时保存在内存中，需要保证内存充足。这一特性同样适用于所有其他 Operator State
  */
-public class BroadcastState {
+public class BroadcastStreamConnect {
 
     private static final String USER_LOGIN = "User login";
     private static final String ADD_TO_CART = "Add to cart";
@@ -85,7 +85,7 @@ public class BroadcastState {
         BroadcastStream<Pattern> broadcastPatterns = patterns.broadcast(broadcastStateDescriptor);
 
         actionsByUser
-                // connect() 方法需要由非广播流来进行调用，BroadcastStream 作为参数传入
+                // connect() 方法需要由非广播流来进行调用，BroadcastStreamConnect 作为参数传入
                 .connect(broadcastPatterns)
                 .process(new PatternEvaluator())
                 .print();

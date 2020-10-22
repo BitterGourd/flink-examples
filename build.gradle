@@ -4,6 +4,7 @@ version '1.0.0'
 allprojects {
     ext {
         javaVersion = '1.8'
+        scalaVersion = '2.11'
         flinkVersion = '1.11.1'
         hadoopVersion = '2.7.2'
         log4jVersion = '2.12.1'
@@ -22,6 +23,7 @@ allprojects {
     }
 
     repositories {
+        mavenLocal()
         maven{
             url{'http://maven.aliyun.com/nexus/content/groups/public/'}
         }

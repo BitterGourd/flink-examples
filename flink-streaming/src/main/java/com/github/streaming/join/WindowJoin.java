@@ -13,7 +13,9 @@ import org.apache.flink.streaming.api.windowing.assigners.TumblingEventTimeWindo
 import org.apache.flink.streaming.api.windowing.time.Time;
 
 /**
- * 双流窗口连接 (name, grade) / (name, salary)
+ * 官方文档：https://ci.apache.org/projects/flink/flink-docs-release-1.11/zh/dev/stream/operators/joining.html
+ *
+ * 窗口连接 (name, grade) / (name, salary)
  */
 public class WindowJoin {
 
@@ -37,7 +39,12 @@ public class WindowJoin {
         grades.join(salaries)
                 .where(new NameKeySelector())
                 .equalTo(new NameKeySelector())
+                // 滚动窗口
                 .window(TumblingEventTimeWindows.of(Time.milliseconds(windowSize)))
+                // 滑动窗口
+                // .window(SlidingEventTimeWindows.of(Time.milliseconds(2) /* size */, Time.milliseconds(1) /* slide */))
+                // 会话窗口
+                // .window(EventTimeSessionWindows.withGap(Time.milliseconds(1)))
                 // 指定联接规则 - 针对窗口中相同 key 进行联接
                 .apply(new JoinFunction<Tuple2<String, Integer>, Tuple2<String, Integer>, Tuple3<String, Integer,
                         Integer>>() {

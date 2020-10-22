@@ -11,3 +11,4 @@ USE OR PERFORMANCE OF THIS SOFTWARE.
 
 The Flink Examples project contains or reuses code that is licensed under the Apache 2.0 license from the following projects:
 - Apache Flink (https://github.com/apache/flink/tree/master/flink-examples)
+- fanrui-learning (https://github.com/1996fanrui/fanrui-learning)

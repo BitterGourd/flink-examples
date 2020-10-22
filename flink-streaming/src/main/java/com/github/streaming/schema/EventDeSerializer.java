@@ -1,4 +1,4 @@
-package com.github.streaming.serialize;
+package com.github.streaming.schema;
 
 import com.github.streaming.state.event.Event;
 import com.github.streaming.state.event.EventType;
@@ -43,3 +43,4 @@ public class EventDeSerializer implements DeserializationSchema<Event>, Serializ
         return TypeInformation.of(Event.class);
     }
 }
+
