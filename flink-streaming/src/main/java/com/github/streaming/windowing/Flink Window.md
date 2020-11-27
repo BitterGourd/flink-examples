@@ -104,3 +104,10 @@ WatermarkStrategy
 
 需要注意的是，设置了 allowedLateness 之后，迟到的数据也可能触发窗口，对于 Session window 来说，可能会对窗口进行合并，产生预期外的行为。
 
+### 3.Window 内部实现
+
+<img src="https://static001.infoq.cn/resource/image/48/b1/485e8090b9412c3cceab65da743504b1.jpg" alt="img" style="zoom:80%;" />
+
+每条数据过来之后，会由 WindowAssigner 分配到对应的 Window，当 Window 被触发之后，会交给 Evictor（如果没有设置 Evictor 则跳过），然后处理 UserFunction。其中 WindowAssigner，Trigger，Evictor 我们都在上面讨论过，而 UserFunction 则是用户编写的代码。
+
+**Window 中的状态存储：**从接口上可以认为没有区别，但是每个 Window 会属于不同的 namespace，而非 Window 场景下，则都属于 VoidNamespace ，最终由 State/Checkpoint 来保证数据的 Exactly Once 语义。

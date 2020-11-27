@@ -82,7 +82,7 @@ public class TwitterJson {
             boolean hasText = jsonNode.has("text");
 
             if (isEnglish && hasText) {
-                // TODO What is StringTokenizer ?
+                // StringTokenizer 是 Java 用于分隔字符串的工具类
                 // message of tweet
                 StringTokenizer tokenizer = new StringTokenizer(jsonNode.get("text").asText());
 
